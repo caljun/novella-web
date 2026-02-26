@@ -31,7 +31,7 @@ export default function WorkCard({ work }: Props) {
 
       {/* Info */}
       <div className="mt-1.5 px-0.5">
-        <p className="text-xs font-semibold text-gray-900 line-clamp-2 leading-snug">{work.title}</p>
+        <p className="text-xs font-semibold text-gray-900 line-clamp-1 leading-snug">{work.title}</p>
         <div className="flex items-center gap-2 mt-1 text-gray-400">
           <span className="flex items-center gap-0.5 text-[10px]">
             <Eye size={10} />
