@@ -146,11 +146,7 @@ export async function deleteWork(id: string) {
   await deleteDoc(doc(db, 'works', id))
 }
 
-export async function incrementViewCount(workId: string, userId: string) {
-  const viewRef = doc(db, 'views', `${workId}_${userId}`)
-  const snap = await getDoc(viewRef)
-  if (snap.exists()) return
-  await setDoc(viewRef, { workId, userId, createdAt: serverTimestamp() })
+export async function incrementViewCount(workId: string) {
   await updateDoc(doc(db, 'works', workId), { viewCount: increment(1) })
 }
 

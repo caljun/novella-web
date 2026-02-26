@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Eye, Heart, ChevronLeft, Edit2, BookOpen, ChevronRight } from 'lucide-react'
-import { fetchWork, fetchEpisodes, incrementViewCount } from '@/lib/firestore'
+import { fetchWork, fetchEpisodes } from '@/lib/firestore'
 import { useAuth } from '@/hooks/useAuth'
 import { useLang } from '@/contexts/LangContext'
 import { t } from '@/lib/i18n'
@@ -26,7 +26,6 @@ export default function WorkDetailPage() {
       setWork(w)
       setEpisodes(eps)
       setLoading(false)
-      if (w && user) incrementViewCount(id, user.uid)
     }
     load()
   }, [id, user])

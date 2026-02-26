@@ -14,6 +14,7 @@ import {
   subscribeComments,
   addComment,
   deleteComment,
+  incrementViewCount,
 } from '@/lib/firestore'
 import { useAuth } from '@/hooks/useAuth'
 import { useLang } from '@/contexts/LangContext'
@@ -50,6 +51,7 @@ export default function EpisodeDetailPage() {
       setAllEpisodes(eps)
       setLikeCount(ep.likeCount)
       setLoading(false)
+      incrementViewCount(ep.workId)
       if (user) setLiked(await isEpisodeLiked(id, user.uid))
     }
     load()
